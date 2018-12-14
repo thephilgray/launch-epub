@@ -1,0 +1,23 @@
+{
+  "name": "launch-epub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "lnf": "^1.3.8",
+    "minimist": "^1.2.0"
+  },
+  "bin": {
+    "launch-epub": "./index.js"
+  },
+  "pkg": {
+    "assets": "bin/reader/**/*"
+  }
+}
