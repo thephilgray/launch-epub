@@ -31,11 +31,10 @@ launch-epub --port=3000
 ### As an executable
 
 ```bash
-npm i -g degit
-degit https://github.com/thephilgray/launch-epub.git launch-epub
+git clone https://github.com/thephilgray/launch-epub.git
 cd launch-epub
-
 npm i
+
 npm i -g pkg
 cd ../
 pkg launch-epub
@@ -46,7 +45,7 @@ cp launch-epub-macos /usr/local/bin/launch-epub
 
 ```
 
-### As a node module (Node required)
+### As a node module (Node required to run)
 
 ```bash
 npm i -g degit
