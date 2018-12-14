@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const path = require('path');
-const Lnf = require('lnf');
 const argv = require('minimist')(process.argv.slice(2));
 const server = require('live-server');
 
