@@ -67,5 +67,6 @@ npm install -g
 
 ## TODO:
 
-- Write --help command
-- Only watch epub_content files
+- [ ] Write --help command
+- [ ] Only watch epub_content files
+- [ ] Customize readium to make it possible to override or bypass scaling for previews of different aspect ratios.
