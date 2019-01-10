@@ -35,9 +35,8 @@ git clone https://github.com/thephilgray/launch-epub.git
 cd launch-epub
 npm i
 
-npm i -g pkg
 cd ../
-pkg launch-epub
+npx pkg launch-epub
 
 # osx-specific
 
@@ -48,9 +47,8 @@ cp launch-epub-macos /usr/local/bin/launch-epub
 ### As a node module (Node required to run)
 
 ```bash
-npm i -g degit
 
-degit https://github.com/thephilgray/launch-epub.git launch-epub
+npx degit https://github.com/thephilgray/launch-epub.git launch-epub
 
 cd launch-epub
 npm install
