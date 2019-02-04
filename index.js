@@ -6,7 +6,7 @@ const server = require('live-server');
 // launch directory named in first argument or otherwise the current working directory if no argument
 
 const projectDir = argv._[0]
-  ? path.join(process.cwd(), argv._[0])
+  ? path.resolve(process.cwd(), argv._[0])
   : process.cwd();
 const projectName = path.basename(projectDir);
 
