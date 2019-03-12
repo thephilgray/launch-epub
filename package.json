@@ -14,7 +14,7 @@
     "minimist": "^1.2.0"
   },
   "bin": {
-    "launch-epub": "./index.js"
+    "launch-epub": "./bin/"
   },
   "pkg": {
     "assets": "bin/reader/**/*"
