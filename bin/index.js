@@ -18,7 +18,7 @@ function launchLiveServer() {
   server.start({
     port,
     open: `?epub=epub_content/${projectName}`,
-    root: path.join(__dirname, 'bin/reader/'),
+    root: path.join(__dirname, 'reader/'),
     noCssInject: true,
     mount: [[`/epub_content/${projectName}`, projectDir]]
   });
