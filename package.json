@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "live-server": "^1.2.1",
+    "live-server": "git+https://github.com/thephilgray/live-server.git",
     "minimist": "^1.2.0"
   },
   "bin": {
