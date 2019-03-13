@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "live-server": "git+https://github.com/thephilgray/live-server.git",
+    "browser-sync": "^2.26.3",
     "minimist": "^1.2.0"
   },
   "bin": {
-    "launch-epub": "./bin/index.js"
+    "launch-epub": "./launchEpub.js"
   },
   "pkg": {
     "assets": "bin/reader/**/*"

@@ -1,28 +1,37 @@
 const path = require('path');
-const server = require('live-server');
+const BrowserSync = require('browser-sync');
 
-const defaults = {
-  relativePath: '',
-  port: 8080
-};
+const defaults = { epubDir: '' };
 
-module.exports = function launchLiveServer(options) {
-  options = Object.assign(defaults, options);
+module.exports = class LaunchEpub {
+  constructor(options = defaults) {
+    this.epubProjectDirectoryPath = path.resolve(
+      process.cwd(),
+      options.epubDir
+    );
+    this.epubProjectName =
+      options.epubName || path.basename(this.epubProjectDirectoryPath);
 
-  const epubProjectDirectory = path.resolve(
-    process.cwd(),
-    options.relativePath
-  );
-  const epubProjectName = options.name || path.basename(epubProjectDirectory);
+    this.server = BrowserSync.create();
 
-  const serverConfig = {
-    ...options,
-    port: options.port,
-    open: `?epub=epub_content/${epubProjectName}`,
-    root: options.root || path.join(__dirname, 'bin/reader/'),
-    noCssInject: true,
-    mount: [[`/epub_content/${epubProjectName}`, epubProjectDirectory]]
-  };
+    this.config = {
+      server: {
+        baseDir: path.resolve(__dirname, './bin/reader/'),
+        index: 'index.html',
+        routes: {
+          [`/epub_content/${this.epubProjectName}`]: this
+            .epubProjectDirectoryPath
+        }
+      },
+      startPath: `index.html?epub=epub_content/${this.epubProjectName}`
+    };
+  }
 
-  server.start(serverConfig);
+  start() {
+    this.server.init(this.config);
+  }
+
+  reload() {
+    this.server.reload();
+  }
 };
