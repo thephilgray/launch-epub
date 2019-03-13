@@ -44,7 +44,7 @@ cp launch-epub-macos /usr/local/bin/launch-epub
 
 ```
 
-### As a node module (Node required to run)
+### As a node module in the command line (Node required to run)
 
 ```bash
 
@@ -61,6 +61,29 @@ npm install -g
 
 # then use launch-epub command
 
+```
+
+### As an npm module
+
+Install it locally to your project
+
+```bash
+npm i --save git+https://github.com/thephilgray/launch-epub.git
+```
+
+Require and instantiate it
+
+```js
+// index.js
+
+const LaunchEpub = require('launch-epub');
+
+const epubServerOptions = { epubDir: 'path-to-epub' };
+const epubServer = new LaunchEpub(epubServerOptions);
+
+epubServer.start();
+
+// also, epubServer.reload() if needed
 ```
 
 ## TODO:
