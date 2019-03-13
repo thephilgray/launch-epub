@@ -1,18 +1,19 @@
 # Launch-EPUB
 
-Launches epub project inside readium with live-server for quick local testing and development.
+A BrowserSync wrapper for sideloading unzipped EPUB projects in Readium for quick local testing and development with live reload.
 
 ## Basic usage (OSX)
 
 NOTE: EPUB project should be an unzipped directory
 
 - Open Terminal from Applications
-- Drag and drop the project directory into Terminal window and press <kbd>return</kbd>
 - Type the following command into Terminal window and press <kbd>return</kbd>:
 
 ```bash
 launch-epub
 ```
+
+- Drag and drop the project directory into Terminal window and press <kbd>return</kbd>
 
 - Press <kbd>⌃ (control)</kbd> + <kbd>c</kbd> to stop the application
 
@@ -63,7 +64,7 @@ npm install -g
 
 ```
 
-### As an npm module
+## Use as an NPM module
 
 Install it locally to your project
 
@@ -76,18 +77,20 @@ Require and instantiate it
 ```js
 // index.js
 
-const LaunchEpub = require('launch-epub');
+const LaunchEpub = require("launch-epub");
 
-const epubServerOptions = { epubDir: 'path-to-epub' };
-const epubServer = new LaunchEpub(epubServerOptions);
+const epubDir = "./path-to-epub"; // relative or absolute
+const browserSyncOptions = {};
+const epubServer = new LaunchEpub(epubDir, browserSyncOptions);
 
 epubServer.start();
 
 // also, epubServer.reload() if needed
+// if you need something else from BrowserSync, get the instance like this: epubServer.BrowserSyncInstance
+// then you can call methods like `reload` or `pause` directly on the instance like this: epubServer.BrowserSyncInstance.reload()
 ```
 
 ## TODO:
 
 - [ ] Write --help command
-- [ ] Only watch epub_content files
 - [ ] Customize readium to make it possible to override or bypass scaling for previews of different aspect ratios.
