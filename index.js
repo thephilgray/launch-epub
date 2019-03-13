@@ -1,20 +1,22 @@
 const path = require('path');
 const BrowserSync = require('browser-sync');
 
-const defaults = { epubDir: '' };
+const defaults = { epubDir: '', port: 3000 };
 
 module.exports = class LaunchEpub {
-  constructor(options = defaults) {
+  constructor(options) {
+    const extendedOptions = { ...defaults, ...options };
     this.epubProjectDirectoryPath = path.resolve(
       process.cwd(),
-      options.epubDir
+      extendedOptions.epubDir
     );
     this.epubProjectName =
-      options.epubName || path.basename(this.epubProjectDirectoryPath);
+      extendedOptions.epubName || path.basename(this.epubProjectDirectoryPath);
 
     this.server = BrowserSync.create();
 
     this.config = {
+      ...extendedOptions,
       server: {
         baseDir: path.resolve(__dirname, './bin/reader/'),
         index: 'index.html',

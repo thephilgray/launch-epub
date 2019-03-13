@@ -4,9 +4,11 @@ const LaunchEpub = require('./index.js');
 
 // launch directory named in first argument or otherwise the current working directory if no argument
 const epubDir = argv._[0] || '';
+const port = argv.port || 8080;
 
 const config = {
-  epubDir
+  epubDir,
+  port
 };
 
 const server = new LaunchEpub(config);
