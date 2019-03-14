@@ -23,6 +23,10 @@ module.exports = class LaunchEpub {
 
   start() {
     this.BrowserSyncInstance.init(this.config);
+    this.BrowserSyncInstance.watch(
+      this.epubProjectDirectoryPath,
+      this.reload.bind(this)
+    );
   }
 
   reload() {
