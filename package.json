@@ -1,14 +1,27 @@
 {
   "name": "launch-epub",
   "version": "1.1.2",
-  "description": "",
+  "description": "A wrapper to launch unzipped EPUB projects in the browser for quick local testing and development with live reload.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "epub",
+    "ebook",
+    "node",
+    "browser-sync",
+    "readium",
+    "local development",
+    "live reload",
+    "cli"
+  ],
+  "author": "@thephilgray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thephilgray/launch-epub/issues"
+  },
+  "homepage": "https://github.com/thephilgray/launch-epub/",
   "dependencies": {
     "browser-sync": "^2.26.3",
     "lodash": "^4.17.11",

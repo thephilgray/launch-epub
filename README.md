@@ -1,6 +1,8 @@
 # Launch-EPUB
 
-A BrowserSync wrapper for sideloading unzipped EPUB projects in Readium for quick local testing and development with live reload.
+A wrapper for BrowserSync and readium-js-viewer to launch unzipped EPUB projects in the browser for quick local testing and development with live reload.
+
+Ideal for usage in the command line or as part of a development workflow.
 
 ## Basic usage (OSX)
 
@@ -77,9 +79,9 @@ Require and instantiate it
 ```js
 // index.js
 
-const LaunchEpub = require("launch-epub");
+const LaunchEpub = require('launch-epub');
 
-const epubDir = "./path-to-epub"; // relative or absolute
+const epubDir = './path-to-epub'; // relative or absolute
 const browserSyncOptions = {};
 const epubServer = new LaunchEpub(epubDir, browserSyncOptions);
 
@@ -93,4 +95,4 @@ epubServer.start();
 ## TODO:
 
 - [ ] Write --help command
-- [ ] Customize readium to make it possible to override or bypass scaling for previews of different aspect ratios.
+- [ ] Customize readium to make it possible to override or bypass scaling for previews of different aspect ratios and device frames.
