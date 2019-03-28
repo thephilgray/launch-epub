@@ -2,36 +2,27 @@
 
 A wrapper for BrowserSync and readium-js-viewer to launch unzipped EPUB projects in the browser for quick local testing and development with live reload.
 
-Ideal for usage in the command line or as part of a development workflow.
+Ideal for usage in the command line or as part of an EPUB development workflow.
 
-## Basic usage (OSX)
+## Installation
 
-NOTE: EPUB project should be an unzipped directory
-
-- Open Terminal from Applications
-- Type the following command into Terminal window and press <kbd>return</kbd>:
+- Install as Node module with `NPM`:
 
 ```bash
-launch-epub
+npm i launch-epub
 ```
 
-- Drag and drop the project directory into Terminal window and press <kbd>return</kbd>
+### CLI (Command Line Interface) Installation
 
-- Press <kbd>⌃ (control)</kbd> + <kbd>c</kbd> to stop the application
-
-### Options
+- Install globally with `NPM`:
 
 ```bash
-# launch from within any directory on your computer by specifying the project directory path
-launch-epub <epub-project-directory-path>
 
-# specify a port
-launch-epub --port=3000
+npm i -g launch-epub
+
 ```
 
-## Install globally
-
-### As an executable
+- Or, as a self-contained executable:
 
 ```bash
 git clone https://github.com/thephilgray/launch-epub.git
@@ -47,34 +38,13 @@ cp launch-epub-macos /usr/local/bin/launch-epub
 
 ```
 
-### As a node module in the command line (Node required to run)
+## API
 
-```bash
+> NOTE: EPUB project should be an unzipped directory
 
-npx degit https://github.com/thephilgray/launch-epub.git launch-epub
+- Install it locally to your project
 
-cd launch-epub
-npm install
-npm link
-
-# or
-
-cd launch-epub
-npm install -g
-
-# then use launch-epub command
-
-```
-
-## Use as an NPM module
-
-Install it locally to your project
-
-```bash
-npm i --save git+https://github.com/thephilgray/launch-epub.git
-```
-
-Require and instantiate it
+- Require and instantiate it, passing in the path to the unzipped EPUB directory as the first argument, and any BrowserSync options as the second.
 
 ```js
 // index.js
@@ -90,6 +60,32 @@ epubServer.start();
 // also, epubServer.reload() if needed
 // if you need something else from BrowserSync, get the instance like this: epubServer.BrowserSyncInstance
 // then you can call methods like `reload` or `pause` directly on the instance like this: epubServer.BrowserSyncInstance.reload()
+```
+
+> See <https://www.browsersync.io/docs/options> for full list of BrowserSync options.
+> NOTE: not all BrowserSync options have been tested or are practical for this use case.
+
+### CLI Usage (OSX)
+
+- Open Terminal (or your preferred terminal application) from Applications
+- Type the following command into Terminal (or your preferred terminal application) window and press <kbd>return</kbd>:
+
+```bash
+launch-epub
+```
+
+- Drag and drop the project directory into Terminal (or your preferred terminal application) window and press <kbd>return</kbd>
+
+- Press <kbd>⌃ (control)</kbd> + <kbd>c</kbd> to stop the application
+
+#### Options
+
+```bash
+# launch from within any directory on your computer by specifying the project directory path
+launch-epub <epub-project-directory-path>
+
+# specify a port
+launch-epub --port=3000
 ```
 
 ## TODO:
